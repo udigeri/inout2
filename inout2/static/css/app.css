@@ -1,0 +1,46 @@
+:root {
+  --color-today: 96, 165, 250;
+  --color-scheduled: 239, 68, 68;
+  --color-all: 156, 163, 175;
+  --color-all-darker: 55, 65, 81;
+  --color-flagged: 245, 158, 11;
+  --list-color-reminder: 239, 68, 68;
+  --list-color-family: 186, 72, 221;
+  --tags-color: 225, 230, 242;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: rgb(44, 44, 44);
+  font-size: 18px;
+  font-family: -apple-system, -system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  min-height: 100vh;
+
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  border: 1px solid black;
+
+  width: 42rem;
+  height: 40rem;
+
+  border-radius: 0.5rem;
+
+  display: flex;
+  overflow: hidden;
+}
+
+header,
+nav,
+main,
+footer {
+  padding: 0.5rem;
+}
