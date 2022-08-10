@@ -12,7 +12,7 @@ flask_app = inout2.flask
 
 @flask_app.route("/")
 def home():
-    return render_template("welcome.jinja")
+    return render_template("about.jinja")
 
 @flask_app.route("/admin/")
 def login():

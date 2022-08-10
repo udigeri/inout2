@@ -15,11 +15,6 @@
 </head>
 
 <body>
-    <!-- <div class="hdr">
-        <header>
-            <h1>Header</h1>
-        </header>
-    </div> -->
     <div class="app">
         <aside>
             <header class="controls">
@@ -218,24 +213,15 @@
         </aside>
 
         <main>
-            <header class="add-new">
-                <button>+</button>
-            </header>
-
-            <div class="title">
-                <h1 class="today" id="p1">P1 Telecash</h1>
-                <h1 class="scheduled" id="p2">P2 Web2Pay</h1>
-                <h1 class="all" id="p3">P3 TrustCommerce</h1>
-                <h1 class="flagged" id="p4">P4 NMI</h1>
-            </div>
+            {% include "_top.jinja" %}
 
             {% block main %} {% endblock %}
+
+            {% include "_bottom.jinja" %}
         </main>
 
     </div>
-    <!-- <div class="ftr">
-        {% include "_footer.jinja" %}
-    </div> -->
+
 </body>
 
 </html>
