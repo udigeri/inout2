@@ -5,7 +5,7 @@ class WebApp():
     HOST = "0.0.0.0"
     PORT = 80
     DEBUG = False
-    SECRET_KEY = 'my_uno-tuti_secret_things'
+    SECRET_KEY = 'my_uno-tuti_secret_things2'
 
     def __init__(self, host=HOST, port=PORT, debug=DEBUG):
         self.host = host

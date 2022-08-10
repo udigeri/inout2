@@ -5,7 +5,7 @@ from inout2.app import App
 from flask import render_template
 
 
-inout2 = WebApp()
+inout2 = WebApp(debug=True)
 flask_app = inout2.flask
 
 
@@ -15,7 +15,7 @@ def home():
     return render_template("welcome.jinja")
 
 @flask_app.route("/admin/")
-def view_admin():
+def login():
     return render_template("admin.jinja")
 
 @flask_app.route("/about/")
