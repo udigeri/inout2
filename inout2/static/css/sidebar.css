@@ -1,0 +1,395 @@
+aside {
+    background: rgb(221, 228, 239);
+    width: 33.333333%;
+  
+    min-width: 260px;
+  }
+  
+  .controls {
+    display: flex;
+  }
+  
+  .controls button {
+    margin: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+  
+    background: orangered;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+  }
+  
+  /* CONTROLS */
+  .controls .close {
+    background: rgb(241, 113, 113);
+    margin-bottom: 1rem;
+  }
+  
+  .controls .close:hover,
+  .controls .close:active {
+    background: rgb(239, 68, 68);
+  }
+  
+  .controls .minimize {
+    background: rgb(252, 211, 77);
+  }
+  
+  .controls .minimize:hover,
+  .controls .minimize:active {
+    background: rgb(245, 158, 11);
+  }
+  
+  .controls .maximize {
+    background: rgb(52, 211, 153);
+  }
+  
+  .controls .maximize:hover,
+  .controls .maximize:active {
+    background: rgb(16, 185, 129);
+  }
+  
+  
+  
+  /* FORMS */
+  input {
+    color:black;
+    font-weight: bold;
+  
+    width: 100%;
+    padding: 0.5rem;
+  
+    background: rgba(255, 255, 255, 0.5);
+  
+    border-top: 1px solid rgb(160, 175, 200);
+    border-left: 1px solid rgb(160, 175, 200);
+    border-radius: 0.375rem;
+  
+    display: none;
+  }
+  
+  input::placeholder {
+    color: black;
+    opacity: 0.5;
+    font-weight: normal;
+  }
+  
+  
+  .lots {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: bold;
+  
+    margin-top: 0.375rem;
+  }
+  
+  .lots h3 {
+    opacity: 0.4;
+  
+    padding-left: 0.375rem;
+    margin-bottom: 0.325rem;
+  }
+  
+  
+  
+  /* NAV */
+  nav {
+    margin-top: 0.375rem;
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  
+  nav a {
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  nav a:hover {
+    color: white;
+  }
+  
+  nav .today:hover,
+  nav .today:active {
+      background: rgb(var(--color-today));
+  }
+  
+  nav .scheduled:hover,
+  nav .scheduled:active {
+    background: rgb(var(--color-scheduled));
+  }
+  
+  nav .all:hover,
+  nav .all:active {
+    background: rgb(var(--color-all-darker));
+  }
+  
+  nav .flagged:hover,
+  nav .flagged:active {
+    background: rgb(var(--color-flagged));
+  }
+  /*  */
+  nav p {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 2.25rem;
+  
+    stroke: white;
+    fill: white;
+  
+    padding: 0.5rem;
+    margin-bottom: 0.375rem;
+  }
+  
+  nav span {
+    font-size: 1.5rem;
+    line-height: 2.375rem;
+  }
+  
+  .today svg {
+    background-color: rgb(var(--color-today));
+  }
+  
+  .scheduled svg {
+    background-color: rgb(var(--color-scheduled));
+  }
+  
+  .all svg {
+    background-color: rgb(var(--color-all-darker));
+  }
+  
+  .flagged svg {
+    background-color: rgb(var(--color-flagged));
+  }
+  
+  
+  
+  /* LISTS */
+  .lists {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: bold;
+  
+    margin-top: 0.375rem;
+    display: none;
+  }
+  
+  .lists h3 {
+    opacity: 0.4;
+  
+    padding-left: 0.375rem;
+    margin-bottom: 0.325rem;
+  }
+  
+  .lists ol {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+  }
+  
+  .lists a {
+    display: flex;
+    align-items: center;
+  
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.375rem;
+  }
+  
+  .lists a:hover,
+  .lists a:active {
+    background-color: rgb(var(--color-all));
+  }
+  
+  .lists p {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  
+  .lists p span{
+    font-weight: normal;
+    font-size: 0.7rem;
+  }
+  
+  .lists svg {
+    width: 2.25rem;
+    height: 2.25rem;
+  
+    border-radius: 2.25rem;
+    stroke: white;
+    fill: white;
+  
+    padding: 0.5rem;
+    margin-right: 0.8rem;
+  }
+  
+  .lists .reminders svg {
+    background-color: rgb(var(--list-color-reminder));
+  }
+  
+  .lists .family svg {
+    background-color: rgb(var(--list-color-family));
+  }
+  
+  
+  
+  /* TAGS  */
+  .tags {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: bold;
+  
+    margin-top: 0.375rem;
+    display: none;
+  }
+  
+  .tags h3 {
+    opacity: 0.4;
+  
+    padding-left: 0.375rem;
+    margin-bottom: 0.325rem;
+  }
+  
+  .tags ol {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+    font-weight: normal;
+  
+    padding: 0.2rem 0.375rem;
+  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  
+    line-height: 2rem;
+  }
+  
+  .tags a {
+    background-color: rgb(var(--tags-color));
+    border-radius: 0.375rem;
+  
+    margin: 0.175rem;
+    padding: 0.175rem;
+  }
+  
+  .tags a:hover,
+  .tags a:active {
+    background-color: rgb(var(--color-all));
+  }
+  
+  
+  /* TOKENS */
+  .tokens {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: bold;
+  
+    margin-top: 0.375rem;
+  }
+  
+  .tokens h3 {
+    opacity: 0.4;
+  
+    padding-left: 0.375rem;
+    margin-bottom: 0.325rem;
+  }
+  
+  .tokens ol {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+  }
+  
+  .tokens a {
+    display: flex;
+    align-items: center;
+  
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.375rem;
+  }
+  
+  .tokens a:hover,
+  .tokens a:active {
+    background-color: rgb(var(--color-all));
+  }
+  
+  .tokens p {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  
+  .tokens p span{
+    font-weight: normal;
+    font-size: 0.7rem;
+  }
+  
+  .tokens svg {
+    width: 2.25rem;
+    height: 2.25rem;
+  
+    border-radius: 2.25rem;
+    stroke: black;
+    fill: black;
+  
+    padding: 0.5rem;
+    margin-right: 0.8rem;
+  }
+  
+  
+  
+  /* USER */
+  .user {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: bold;
+  
+    margin-top: 0.375rem;
+  }
+  
+  .user a {
+    display: flex;
+    align-items: center;
+  
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.375rem;
+  }
+  
+  .user a:hover,
+  .user a:active {
+    background-color: rgb(var(--color-all));
+  }
+  
+  .user p {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  
+  .user p span{
+    font-weight: normal;
+    font-size: 0.7rem;
+  }
+  
+  .user svg {
+    width: 2.25rem;
+    height: 2.25rem;
+  
+    background-color: rgb(var(--color-all));
+    border-radius: 2.25rem;
+    stroke: white;
+    fill: white;
+  
+    padding: 0.5rem;
+    margin-right: 0.8rem;
+  }
+  
+  

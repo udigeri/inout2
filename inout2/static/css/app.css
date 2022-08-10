@@ -18,10 +18,16 @@ body {
   font-size: 18px;
   font-family: -apple-system, -system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  
+  background-image: linear-gradient(
+    to right,
+    rgb(131, 100, 204),
+    rgb(131, 22, 27)
+  );
 
   min-height: 100vh;
 
-  display: block;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -29,8 +35,8 @@ body {
 .app {
   border: 1px solid black;
 
-  width: 42rem;
-  height: 40rem;
+  width: 54rem;
+  height: 50rem;
 
   border-radius: 0.5rem;
 
@@ -38,9 +44,7 @@ body {
   overflow: hidden;
 }
 
-header,
-nav,
-main,
-footer {
-  padding: 0.5rem;
+aside,
+main {
+  padding: 1rem;
 }

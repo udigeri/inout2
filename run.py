@@ -11,7 +11,7 @@ flask_app = inout2.flask
 
 
 @flask_app.route("/")
-def index():
+def home():
     return render_template("welcome.jinja")
 
 @flask_app.route("/admin/")
@@ -21,14 +21,6 @@ def view_admin():
 @flask_app.route("/about/")
 def view_about():
     return render_template("about.jinja")
-
-@flask_app.route("/admin/<string:name>")
-def view_admin_name(name):
-    return "Hello {}".format(name)
-
-@flask_app.route("/article/<int:art_id>")
-def view_article(art_id):
-    return "Article #{}".format(art_id)
 
 
 
