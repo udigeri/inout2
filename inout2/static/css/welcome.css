@@ -88,6 +88,11 @@ article header {
   font-weight: bold;
 }
 
+article p,
+article footer {
+  margin-top: 0.75rem;
+}
+
 
 footer p {
   margin-top: 1.5rem;
