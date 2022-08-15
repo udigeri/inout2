@@ -24,7 +24,7 @@ body {
 }
 
 /* WELCOME */
-.welcome {
+.login_form {
   font-size: 1rem;
   font-weight: bold;
   line-height: 1rem;
@@ -32,34 +32,6 @@ body {
   margin: 2.25rem auto 3rem;
 }
 
-.welcome ol {
-  width: 87vw;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 1rem;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-.welcome a {
-  display: flex;
-  align-items: center;
-
-  border-radius: 1rem;
-  padding: 0.375rem 0.375rem;
-}
-
-.welcome a:hover,
-.welcome a:active {
-  background-color: #fff;
-}
-
-.welcome p {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
 
 .welcome p span {
   font-weight: normal;
