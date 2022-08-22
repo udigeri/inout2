@@ -1,25 +1,84 @@
-{% extends "_main.jinja" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inout2</title>
+    <link
+      rel="icon"
+      sizes="16x16"
+      href="{{ url_for('static', filename='icon/favicon.ico') }}"
+    />
 
-{% block title %}Login {% endblock %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/normalize.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/welcome.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/login.css') }}"
+    />
+  </head>
 
-{% block main %}
-<div class="title">
-    <h1 class="today" id="p1">P1 Telecash</h1>
-    <h1 class="scheduled" id="p2">P2 Web2Pay</h1>
-    <h1 class="all" id="p3">P3 TrustCommerce</h1>
-    <h1 class="flagged" id="p4">P4 NMI</h1>
-</div>
+  <body>
+    <nav class="welcome">
+        <ol>
+          <li>
+            <a href="{{ url_for('view_home') }}">
+              <svg>
+                <path
+                  d="M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z"
+                ></path>
+              </svg>
+              <p>Inout2</p>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="{{ url_for('view_login') }}">
+              <svg>
+                <path
+                  d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"
+                ></path>
+              </svg>
+              <p>
+                Register
+                <span></span>
+              </p>
+            </a>
+          </li> -->
+        </ol>
+      </nav>
 
-<header>
-    Login to Inout2
-</header>
-<p>
-<form>
-    <input type="text" placeholder="username/email" />
-    <input type="password" placeholder="password" />
-    <input type="submit" />
-</form>
-</p>
+    <div class="login_form">
+      <h2>Sign-in</h2>
+      <form action="login.html" method="POST">
+        <p>Email</p>
+        <input type="text" placeholder="email" name="email" />
+        <p>Password</p>
+        <input type="password" placeholder="password" name="password" />
+        <button>
+          <input type="submit" value="Sign-in" />
+        </button>
+      </form>
+    </div>
 
-<footer>no ta dobre</footer>
-{% endblock %}
+    <footer>
+      <p class="bottom_nav">
+        <a href="#">About us</a>
+        <a href="#">Guides & Tutorials</a>
+        <a href="#">Status</a>
+        <a href="#">What's new</a>
+        <a href="mailto:udigeri@gmail.com" class="bottom_nav_end">Email us</a>
+      </p>
+      <p class="copyright">Copyright © 2022 Udi</p>
+    </footer>
+  </body>
+</html>

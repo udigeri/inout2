@@ -26,7 +26,7 @@ body {
 /* LOGIN */
 .login_form {
 
-  width: 30vw;
+  width: 40vw;
   font-size: 1rem;
   font-weight: bold;
   line-height: 1rem;
@@ -72,7 +72,7 @@ input::placeholder {
 
 button input{
   display: flex;
-  width:100%;
+  width: 100%;
   color: black;
   font-weight: bold;
 
