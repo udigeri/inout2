@@ -59,6 +59,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  margin: 0.75rem;
 }
 
 .welcome p span {
@@ -84,7 +85,7 @@ article {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-
+  
   font-size: 1rem;
 }
 
