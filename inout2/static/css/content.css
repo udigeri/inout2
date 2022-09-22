@@ -35,21 +35,25 @@ main {
     display: none;
   }
   
-  h1.today {
-    color: rgb(var(--color-today));
+  h1.psp_telecash {
+    color: rgb(var(--color-psp-telecash));
     display:none;
   }
   
-  h1.scheduled {
-    color: rgb(var(--color-scheduled));
+  h1.psp_web2pay {
+    color: rgb(var(--color-psp-web2pay));
   }
   
-  h1.all {
-    color: rgb(var(--color-all));
+  h1.psp_trustcommerce {
+    color: rgb(var(--color-psp-trustcommerce));
   }
   
-  h1.flagged {
-    color: rgb(var(--color-flagged));
+  h1.psp_nmi {
+    color: rgb(var(--color-psp-nmi));
+  }
+  
+  h1.psp_ccv {
+    color: rgb(var(--color-psp-ccv));
   }
   
   /* TODOS */
