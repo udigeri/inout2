@@ -2,10 +2,10 @@ import argparse
 
 from inout2.web import WebApp
 from inout2.app import App
-from flask import render_template
+from flask import render_template, request, session, flash, redirect, url_for
 
 
-inout2 = WebApp(debug=True)
+inout2 = WebApp(debug=False)
 flask_app = inout2.flask
 
 
@@ -14,9 +14,28 @@ flask_app = inout2.flask
 def view_home():
     return render_template("welcome.jinja")
 
-@flask_app.route("/login/")
+@flask_app.route("/login/", methods=["GET"])
 def view_login():
     return render_template("login.jinja")
+
+@flask_app.route("/login/", methods=["POST"])
+def check_login():
+    """Create session when correct user/password provided"""
+    error = None
+    username = request.form['username']
+    password = request.form['password']
+    if username and password:
+        rsp = inout2.getAuthentication(username, password)
+        if rsp:
+            error = rsp
+        else:
+            session['logged_in'] = True
+            flash('You were logged in', category='success')
+            return redirect(url_for('index'))
+    else:
+        error = "Missing credentials"
+
+    return render_template('login.jinja', error=error)
 
 @flask_app.route("/admin/")
 def view_admin():

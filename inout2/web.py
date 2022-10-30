@@ -1,5 +1,7 @@
 # # import os
 from flask import Flask
+import requests
+from requests.auth import HTTPBasicAuth
 
 class WebApp():
     HOST = "0.0.0.0"
@@ -27,3 +29,24 @@ class WebApp():
 
         # https
         # self.flask.run(host=self.host, port=self.port, debug=self.debug, ssl_context='adhoc')
+
+    def _getAuthenticationURL(self):
+        return self.pgs._getHost() #+ "/pgs"
+
+    def getAuthentication(self, usr, pwd):
+        self.username = usr
+        self.password = pwd
+
+        error = None
+        self.pgs.setAuth(HTTPBasicAuth(usr, pwd))
+        try:
+            rsp = requests.get(self._getAuthenticationURL(), auth=HTTPBasicAuth(usr, pwd))
+            if rsp.status_code != 404 and rsp.status_code != 200:
+                error = "Authentication failed Status code {} {}".format(rsp.status_code, self._getAuthenticationURL())
+                self.logger.warning(error)
+            else:
+                self.logger.info("Web Authentication success on {}".format(self._getAuthenticationURL()))
+        except Exception as err:
+            error = "Authentication failed {}".format(err)
+            self.logger.error(error)
+        return error

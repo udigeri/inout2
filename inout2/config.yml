@@ -1,15 +1,25 @@
 development:
   log_level: debug
-  log_file_path: ./inout2.log 
+  log_file_path: ./inout.log 
   web_port: 80
   provider:
     TrustCommerce:
       tenant: pgs-testTelecash
       shop: shop-InOut
       shopInfo: A. Bernolaka 72, Zilina
-      host: http://localhost:8080
+      # host: http://localhost:8080
+
+      # IBM cloud
       # host: https://preprod-entervo-connectv2.scheidt-bachmann.net:8443
-      baseURL: /pgs/public/api/payment
+      # host: https://entervo-connectv2.scheidt-bachmann.net:8443
+      # baseURL: /pgs/public/api/payment
+
+      # AWS cloud
+      host: https://kong.dev.parking.scheidt-bachmann.net/pgs/
+      # host: https://pm.preprod.parking.scheidt-bachmann.net/pgs/
+      # host: https://pm.prod.parking.scheidt-bachmann.net/pgs/
+      baseURL: public/api/payment
+
       successURL: http://localhost/approved
       failureURL: http://localhost/declined
       locale: en-GB
@@ -18,20 +28,27 @@ development:
 
 production:
   log_level: debug
-  log_file_path: ./inout2.log
+  log_file_path: ./inout.log
   web_port: 80
   provider:
     TrustCommerce:
-      tenant: pgs-testNMI
-      #  tenant: UK-StokeOnTrent-ThePotteries-Shopping-Centre
+      tenant: pgs-testCCV
+      #tenant: DE-Heidelberg-P6-Kraus
       shop: shop-InOut
       shopInfo: A. Bernolaka 72, Zilina
-      # host: http://192.168.1.242:8080
-      # host: http://10.180.54.62:8280
-      host: https://kong.dev.parking.scheidt-bachmann.net
+      # host: http://localhost:8080
+
+      # IBM cloud
       # host: https://preprod-entervo-connectv2.scheidt-bachmann.net:8443
-      # host: https://prod-pgs.scheidt-bachmann.net:8443
-      baseURL: /pgs/public/api/payment
+      # host: https://entervo-connectv2.scheidt-bachmann.net:8443
+      # baseURL: /pgs/public/api/payment
+
+      # AWS cloud
+      host: https://kong.dev.parking.scheidt-bachmann.net/pgs/
+      # host: https://pm.preprod.parking.scheidt-bachmann.net/pgs/
+      # host: https://pm.prod.parking.scheidt-bachmann.net/pgs/
+      baseURL: public/api/payment
+
       successURL: http://localhost/approved
       failureURL: http://localhost/declined
       locale: en-GB
