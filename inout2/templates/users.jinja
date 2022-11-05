@@ -1,0 +1,32 @@
+{% extends "_main.jinja" %}
+
+{% block title %}Users {% endblock %}
+
+{% block main %}
+<div class="title">
+    <h1 class="psp_telecash" id="p1">P1 Telecash</h1>
+    <h1 class="psp_web2pay" id="p2">P2 Web2Pay</h1>
+    <h1 class="psp_trustcommerce" id="p3">P3 TrustCommerce</h1>
+    <h1 class="psp_nmi" id="p4">P4 NMI</h1>
+    <h1 class="psp_ccv" id="p5">P5 CCV</h1>
+</div>
+
+<header>
+    Users from Inout2
+</header>
+<p>
+{% if users %}
+    <ul>
+        {% for user in users %}
+        <li>
+            {{user.name}} {{user.username}}
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No Users :(</p>
+{% endif %}
+</p>
+
+<footer>no ta dobre</footer>
+{% endblock %}

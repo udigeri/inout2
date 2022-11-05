@@ -50,6 +50,15 @@ def logout_user():
 
 
 
+@flask_app.route("/users/")
+def view_users():
+    db = get_db()
+    cur = db.execute("select * from users order by id desc")
+    users = cur.fetchall()
+    return render_template("users.jinja", users=users)
+
+
+
 @flask_app.route("/admin/")
 def view_admin():
     return render_template("admin.jinja")
@@ -68,16 +77,17 @@ def connect_db():
     rv.row_factory = sqlite3.Row
     return rv
 
+
 def get_db():
     if not hasattr(g, "sqlite_db"):
         g.sqlite_db = connect_db()
     return g.sqlite_db
 
+
 @flask_app.teardown_appcontext
 def close_db(error):
     if hasattr(g, "sqlite_db"):
         g.sqlite_db.close()
-
 
 
 def init_db(app):
