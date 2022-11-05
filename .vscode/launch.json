@@ -1,0 +1,34 @@
+{
+    "configurations": [
+
+
+        {
+            "name": "Inout2",
+            "type": "python",
+            "request": "launch",
+            "program": "run.py",
+            "justMyCode": true,
+        },
+        {
+            "name": "Init DB",
+            "type": "python",
+            "request": "launch",
+            "program": "run.py",
+            "justMyCode": true,
+            "args": [
+                "-i initialize_db"
+            ]
+        },
+        {
+            "name": "Help",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": true,
+            "args": [
+                "-h"
+            ]
+        }
+
+    ]
+}

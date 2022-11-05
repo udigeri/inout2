@@ -8,16 +8,16 @@
     <h1 class="psp_web2pay" id="p2">P2 Web2Pay</h1>
     <h1 class="psp_trustcommerce" id="p3">P3 TrustCommerce</h1>
     <h1 class="psp_nmi" id="p4">P4 NMI</h1>
-    <h1 class="psp_ccv" id="p4">P5 CCV</h1>
+    <h1 class="psp_ccv" id="p5">P5 CCV</h1>
 </div>
 
 <header>
     Login to Inout2
 </header>
 <p>
-<form>
-    <input type="text" placeholder="username/email" />
-    <input type="password" placeholder="password" />
+<form action="{{ url_for('login_user') }}" method="POST">
+    <input type="text" placeholder="username" name="username" />
+    <input type="password" placeholder="password" name="password" />
     <input type="submit" />
 </form>
 </p>
