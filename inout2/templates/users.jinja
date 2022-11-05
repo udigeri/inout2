@@ -14,19 +14,17 @@
 <header>
     Users from Inout2
 </header>
-<p>
 {% if users %}
-    <ul>
+    <ol>
         {% for user in users %}
         <li>
-            {{user.name}} {{user.username}}
+            {{user.name}} {{user.username}} {{user.password}}
         </li>
         {% endfor %}
-    </ul>
+    </ol>
 {% else %}
     <p>No Users :(</p>
 {% endif %}
-</p>
 
 <footer>no ta dobre</footer>
 {% endblock %}

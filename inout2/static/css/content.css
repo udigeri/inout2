@@ -84,3 +84,15 @@ main {
   .todos svg:active {
     fill: rgb(var(--color-flagged));
   }
+
+  header {
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    margin-top: 1rem;
+  }
+
+  li {
+    font-weight: bold;
+  }
