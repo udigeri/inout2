@@ -71,13 +71,18 @@
     <div class="login_form">
       <h2>Sign-in</h2>
       <form action="{{ url_for('view_login') }}" method="POST">
+        {{ form.csrf_token }}
         <p>
-          <label for="for-email">Email</label>
-          <input type="text" placeholder="email" name="username" />
+          {{ form.username.label }}
+          {{ form.username()}}
+          <!-- <label for="for-email">Email</label>
+          <input type="text" placeholder="email" name="username" /> -->
         </p>
         <p>
-          <label for="for-password">Password</label>
-          <input type="password" placeholder="password" name="password" />
+          {{ form.password.label }}
+          {{ form.password()}}
+          <!-- <label for="for-password">Password</label>
+          <input type="password" placeholder="password" name="password" /> -->
         </p>
         <button>
           <input type="submit" value="Sign-in" />

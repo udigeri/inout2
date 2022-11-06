@@ -10,12 +10,25 @@ from flask import session
 from flask import flash
 from flask import g
 
+from flask_wtf import FlaskForm
+from wtforms import StringField
+from wtforms import PasswordField
+from wtforms.validators import InputRequired
+
 import sqlite3
 
 inout2 = WebApp(debug=True)
 flask_app = inout2.flask
 
+##FORMS
 
+class LoginForm(FlaskForm):
+    username = StringField("Username", validators=[InputRequired()])
+    password = PasswordField("Password", validators=[InputRequired()])
+
+
+
+##CONTROLLERS
 
 @flask_app.route("/")
 def view_home():
@@ -25,22 +38,28 @@ def view_home():
 
 @flask_app.route("/login/", methods=["GET"])
 def view_login():
-    return render_template("login.jinja")
+    login_form = LoginForm()
+    return render_template("login.jinja", form=login_form)
 
 
 
 @flask_app.route("/login/", methods=["POST"])
 def login_user():
     """Create session when correct user/password provided"""
-    username = request.form['username']
-    password = request.form['password']
-    if username == "testexport" and password == "testexport":
-        session["logged"] = True
-        flash("Login successfull")
-        return redirect(url_for("view_admin"))
+    login_form = LoginForm(request.form)
+    if login_form.validate():
+        if login_form.username.data == "testexport" and \
+            login_form.password.data == "testexport":
+            session["logged"] = True
+            flash("Login successfull")
+            return redirect(url_for("view_admin"))
+        else:
+            flash("Invalid credentials", "alert")
+            return redirect(url_for("view_login"))
     else:
-        flash("Invalid credentials", "alert")
-        return redirect(url_for("view_login"))
+        for error in login_form.errors:
+            flash("{} is missing".format(error), "alert")
+        return redirect(url_for("view_home"))
 
 
 
