@@ -36,8 +36,10 @@ def login_user():
     password = request.form['password']
     if username == "testexport" and password == "testexport":
         session["logged"] = True
+        flash("Login successfull")
         return redirect(url_for("view_admin"))
     else:
+        flash("Invalid credentials", "alert")
         return redirect(url_for("view_login"))
 
 
@@ -46,16 +48,21 @@ def login_user():
 def logout_user():
     """Drop session"""
     session.pop("logged")
+    flash("Successfully Logouted")
     return redirect(url_for("view_home"))
 
 
 
 @flask_app.route("/users/")
 def view_users():
-    db = get_db()
-    cur = db.execute("select * from users order by id desc")
-    users = cur.fetchall()
-    return render_template("users.jinja", users=users)
+    if "logged" in session:
+        db = get_db()
+        cur = db.execute("select * from users order by id desc")
+        users = cur.fetchall()
+        return render_template("users.jinja", users=users)
+    else:
+        flash("You must be Logged", "alert")
+        return render_template("welcome.jinja")
 
 
 

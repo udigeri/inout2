@@ -14,6 +14,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/parking.js') }}"></script>
 </head>
 
+
 <body>
     <div class="app">
         <aside>
@@ -230,6 +231,16 @@
         </aside>
 
         <main>
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}"> {{ message }} </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+
             {% include "_top.jinja" %}
 
             {% block main %} {% endblock %}

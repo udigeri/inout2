@@ -23,6 +23,28 @@ body {
   padding: 0;
 }
 
+
+.flashes {
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.flashes li {
+  list-style: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgray;
+  padding: 3px;
+  text-align: center;
+  background-color: rgb(195, 245, 195);
+}
+
+.flashes .alert {
+  background-color: mistyrose;
+}
+
 /* WELCOME */
 .welcome {
   font-size: 1rem;
