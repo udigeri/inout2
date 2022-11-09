@@ -6,7 +6,9 @@ class WebApp():
     PORT = 80
     DEBUG = False
     SECRET_KEY = 'my_uno-tuti_secret_things2'
-    DATABASE = "inout2/inout2.db"
+    # DATABASE = "inout2/inout2.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///../inout2/inout2.db"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     def __init__(self, host=HOST, port=PORT, debug=DEBUG):
         self.host = host

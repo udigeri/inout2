@@ -15,10 +15,16 @@ from wtforms import StringField
 from wtforms import PasswordField
 from wtforms.validators import InputRequired
 
-import sqlite3
+from inout2.models import db
+from inout2.models import Users
+
+
 
 inout2 = WebApp(debug=True)
 flask_app = inout2.flask
+
+## INIT DATABASE
+db.init_app(flask_app)
 
 ##FORMS
 
@@ -75,13 +81,25 @@ def logout_user():
 @flask_app.route("/users/")
 def view_users():
     if "logged" in session:
-        db = get_db()
-        cur = db.execute("select * from users order by id desc")
-        users = cur.fetchall()
+        users = Users.query.order_by(Users.id.desc())
         return render_template("users.jinja", users=users)
     else:
         flash("You must be Logged", "alert")
         return render_template("welcome.jinja")
+
+
+
+@flask_app.route("/adduser/")
+def add_user():
+    if "logged" in session:
+        new_user = Users(
+                name = "Pavol",
+                username = "Udi",
+                password = "PavolPwd")
+        db.session.add(new_user)
+        db.session.commit()
+        users = Users.query.order_by(Users.id.desc())
+        return render_template("users.jinja", users=users)
 
 
 
@@ -97,32 +115,11 @@ def view_about():
 
 
 
-## UTILS
-def connect_db():
-    rv = sqlite3.connect(inout2.DATABASE)
-    rv.row_factory = sqlite3.Row
-    return rv
-
-
-def get_db():
-    if not hasattr(g, "sqlite_db"):
-        g.sqlite_db = connect_db()
-    return g.sqlite_db
-
-
-@flask_app.teardown_appcontext
-def close_db(error):
-    if hasattr(g, "sqlite_db"):
-        g.sqlite_db.close()
-
+## CLI COMMAND
 
 def init_db(app):
     with app.app_context():
-        db = get_db()
-        with open("inout2/schema.sql", "r") as fp:
-            db.cursor().executescript(fp.read())
-        db.commit()
-
+        db.create_all()
 
 
 
@@ -151,8 +148,11 @@ if (__name__ == "__main__"):
 
 
     app = App(__version__, parser.parse_args())
+
+
+
     if (app.config.params.init_db != None):
-        init_db(inout2.flask)
+        init_db(flask_app)
         app.logger.info("Initialize DB finished")
 
     else:
