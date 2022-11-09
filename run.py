@@ -93,9 +93,10 @@ def view_users():
 def add_user():
     if "logged" in session:
         new_user = Users(
-                name = "Pavol",
-                username = "Udi",
-                password = "PavolPwd")
+            id = "1",
+            name = "Pavol",
+            username = "Udi",
+            password = "PavolPwd")
         db.session.add(new_user)
         db.session.commit()
         users = Users.query.order_by(Users.id.desc())
