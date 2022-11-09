@@ -7,7 +7,8 @@ class WebApp():
     DEBUG = False
     SECRET_KEY = 'my_uno-tuti_secret_things2'
     # DATABASE = "inout2/inout2.db"
-    SQLALCHEMY_DATABASE_URI = "sqlite:///../inout2/inout2.db"
+    #SQLALCHEMY_DATABASE_URI = "sqlite:///../inout2/inout2.db"
+    SQLALCHEMY_DATABASE_URI = "postgresql://localhost:5432/pgs_standard"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     def __init__(self, host=HOST, port=PORT, debug=DEBUG):
