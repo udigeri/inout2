@@ -17,6 +17,7 @@ from wtforms.validators import InputRequired
 
 from inout2.models import db
 from inout2.models import Users
+from inout2.models import Tenant
 
 
 
@@ -78,11 +79,23 @@ def logout_user():
 
 
 
+@flask_app.route("/tenants/")
+def view_tenants():
+    if "logged" in session:
+        tenants = Tenant.query.order_by(Tenant.ten_id.desc())
+        return render_template("tenants.jinja", tenants=tenants)
+    else:
+        flash("You must be Logged", "alert")
+        return render_template("welcome.jinja")
+
+
+
 @flask_app.route("/users/")
 def view_users():
     if "logged" in session:
         users = Users.query.order_by(Users.id.desc())
-        return render_template("users.jinja", users=users)
+        tenant = Tenant.query.order_by(Tenant.ten_id.desc())
+        return render_template("users.jinja", users=users, tenants=tenant)
     else:
         flash("You must be Logged", "alert")
         return render_template("welcome.jinja")
