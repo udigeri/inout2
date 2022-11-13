@@ -55,9 +55,11 @@ def login_user():
     """Create session when correct user/password provided"""
     login_form = LoginForm(request.form)
     if login_form.validate():
-        if login_form.username.data == "testexport" and \
-            login_form.password.data == "testexport":
-            session["logged"] = True
+        user = Users.query.filter_by(username = login_form.username.data).first()
+        if user and user.check_password(login_form.password.data):
+        # if login_form.username.data == "testexport" and \
+        #     login_form.password.data == "testexport":
+            session["logged"] = user.username
             flash("Login successfull")
             return redirect(url_for("view_admin"))
         else:
@@ -94,8 +96,7 @@ def view_tenants():
 def view_users():
     if "logged" in session:
         users = Users.query.order_by(Users.id.desc())
-        tenant = Tenant.query.order_by(Tenant.ten_id.desc())
-        return render_template("users.jinja", users=users, tenants=tenant)
+        return render_template("users.jinja", users=users)
     else:
         flash("You must be Logged", "alert")
         return render_template("welcome.jinja")
@@ -104,16 +105,14 @@ def view_users():
 
 @flask_app.route("/adduser/")
 def add_user():
-    if "logged" in session:
-        new_user = Users(
-            id = "1",
-            name = "Pavol",
-            username = "Udi",
-            password = "PavolPwd")
-        db.session.add(new_user)
-        db.session.commit()
-        users = Users.query.order_by(Users.id.desc())
-        return render_template("users.jinja", users=users)
+    new_user = Users(
+        name = "Pavol Hudak",
+        username = "Udi")
+    new_user.set_password("testexport")
+    db.session.add(new_user)
+    db.session.commit()
+    users = Users.query.order_by(Users.id.desc())
+    return render_template("users.jinja", users=users)
 
 
 
@@ -134,6 +133,12 @@ def view_about():
 def init_db(app):
     with app.app_context():
         db.create_all()
+
+        default_user = Users(name="default", username="testexport")
+        default_user.set_password("testexport")
+
+        db.session.add(default_user)
+        db.session.commit()
 
 
 
